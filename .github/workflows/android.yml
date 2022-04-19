@@ -24,4 +24,7 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew build
       - name: Deploy to jfrog
+        env:
+          jfrogUser: ${{ secrets.jfrog_user }}
+          jfrogToken: ${{ secrets.jfrog_token }}
         run: ./gradlew onesignal:assembleRelease onesignal:artifactoryPublish
